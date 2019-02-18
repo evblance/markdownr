@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+}

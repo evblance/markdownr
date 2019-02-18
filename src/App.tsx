@@ -1,28 +1,45 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MarkdownInput from './components/MarkdownInput';
+import MarkdownOutput from './components/MarkdownOutput';
+import { AppHeader } from './components/AppHeader';
+import './App.scss';
+import styled from 'styled-components';
+import marked from 'marked';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+
+interface AppState {
+    myHtml: string,
+}
+
+class App extends Component<any, AppState> {
+
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            myHtml: ``,
+        };
+        this.handleMarkdownUpdate = this.handleMarkdownUpdate.bind(this);
+    }
+
+    handleMarkdownUpdate(markdown: string): void {
+        this.setState({
+            myHtml: marked(markdown),
+        });
+    }
+
+    render(): JSX.Element {
+        return (
+            <AppWrapper>
+                <AppHeader />
+                <div className="container">
+                    <MarkdownInput onUpdateMarkdown={this.handleMarkdownUpdate} />
+                    <MarkdownOutput myHtml={this.state.myHtml} />
+                </div>
+            </AppWrapper>
+        );
+    }
 }
 
 export default App;
+
+const AppWrapper = styled.div``;
