@@ -13,25 +13,23 @@ const placeholder: string =
 `
 # Getting started
 
-## Marking up headings is easy
+## We can Markdown heading levels by preceding text with one or more \#'s
 
-Markdown allows you to write paragraph text...
+Plain text will be translated to normal paragraph text, but we can also make text __strong__ or _emphasised_.
 
-...which can be normal, __bold__ or _italic_.
-
-You can easily write ordered lists:
+Ordered list come naturally...
 1. Lint code
 2. Build project
 3. Deploy
 
-and unordered lists:
+...as do unordered lists:
 - Apples
 - Oranges
 - Watermelons
 
-> You can quote text
+> With Markdown we can blockquote
 
-and write \`code\` both inline and multiline:
+and represent code both \`inline\` and multiline like so:
 
 \`\`\`
     foo(): bar {
@@ -39,11 +37,11 @@ and write \`code\` both inline and multiline:
     }
 \`\`\`
 
-Images can easily be your friend with markdown:
+Images can easily be our friend with Markdown:
 
 ![](https://placekitten.com/150/150)
 
-And finally, you can also markup [links](https://www.npmjs.com/package/marked).
+Last but not least, we can of course Markdown [links](https://www.npmjs.com/package/marked).
 `;
 
 export class MarkdownInput extends Component<MdInputProps, MdInputState> {
